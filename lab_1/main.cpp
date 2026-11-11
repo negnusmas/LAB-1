@@ -4,8 +4,8 @@
 
 using namespace std;
 
-// ---------- Проверка «только заглавные русские буквы» ----------
-// Работаем по UTF-8: каждая русская буква — 2 байта.
+//Проверка «только заглавные русские буквы»
+// Работаем по UTF-8
 static bool isValidKey(const string& s) {
     if (s.empty()) return false;
     static const string upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
@@ -20,14 +20,14 @@ static bool isValidKey(const string& s) {
         string ch = s.substr(i, len);
         if (!(ch.size() == 2 &&
               (upper.find(ch) != string::npos || lower.find(ch) != string::npos)))
-            return false;  // цифра, пробел, знак, латиница — недопустимы
+            return false;  // цифра, пробел, знак, латиница
         i += len;
     }
     return true;
 
 }
 
-//Проверка «текст содержит хотя бы одну русскую букву»
+//Проверка текста на содержание хотя бы одну русскую букву
 static bool isValidText(const string& s) {
     static const string upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
     static const string lower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";

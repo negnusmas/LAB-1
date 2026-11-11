@@ -46,7 +46,7 @@ std::string modAlphaCipher::getValidKey(const std::string& s) {
         } else if (isLowerRu(c)) {
             tmp += toUpperRu(c);          // строчные переводим в заглавные
         } else {
-            throw cipher_error("Invalid key " + s);   // цифры, пробелы, латиница и т.п.
+            throw cipher_error("Invalid key " + s);   // цифры, пробелы, латиница
         }
     }
    
@@ -65,7 +65,7 @@ std::string modAlphaCipher::getValidOpenText(const std::string& s) {
             tmp += c;
         } else if (isLowerRu(c)) {
             tmp += toUpperRu(c);          // строчные в заглавные
-        } // все остальное удаляем
+        } 
     }
     if (tmp.empty())
         throw cipher_error("Empty open text");
@@ -83,7 +83,6 @@ std::string modAlphaCipher::getValidCipherText(const std::string& s) {
 }
 
 //Преобразования
-
 std::vector<int> modAlphaCipher::convert(const std::string& s) {
     std::vector<int> result;
     for (const auto& c : splitUtf8(s)) {
@@ -103,7 +102,6 @@ std::string modAlphaCipher::convert(const std::vector<int>& v) {
 }
 
 //Конструктор
-
 modAlphaCipher::modAlphaCipher(const std::string& skey) {
     for (size_t i = 0; i < numAlpha.size() / 2; i++)
         alphaNum[numAlpha.substr(i * 2, 2)] = i;

@@ -7,16 +7,16 @@
 /** @brief Шифрование методом Гронсфельда (русский алфавит)
  *  @details Ключ устанавливается в конструкторе.
  *  Для зашифровывания и расшифровывания предназначены методы encrypt и decrypt.
- *  @warning Реализация только для русского языка (33 буквы, включая Ё)
+ *  @warning Реализация только для русского языка
  */
 class modAlphaCipher {
 private:
-    std::string numAlpha = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"; // алфавит по порядку
-    std::map <std::string, int> alphaNum;  // "номер по символу" (символ — UTF-8 строка)
+    std::string numAlpha = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"; // алфавит
+    std::map <std::string, int> alphaNum;  // номер по символу
     std::vector <int> key;                 // ключ в числовом виде
 
-    std::vector<int> convert(const std::string& s);   // строка -> вектор
-    std::string convert(const std::vector<int>& v);   // вектор -> строка
+    std::vector<int> convert(const std::string& s);   // строка в вектор
+    std::string convert(const std::vector<int>& v);   // вектор в строка
 
     std::string getValidKey(const std::string& s);
     std::string getValidOpenText(const std::string& s);
