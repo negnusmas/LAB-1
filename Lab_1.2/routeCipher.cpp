@@ -2,7 +2,7 @@
 #include <cwctype>
 #include <vector>
 
-// ==================== Вспомогательные методы ====================
+//Вспомогательные методы
 
 RouteCipher::RouteCipher(size_t skey) {
     if (skey < 2)
@@ -79,7 +79,6 @@ std::wstring RouteCipher::decrypt(const std::wstring& cipher_text) {
     for (size_t i = 0; i < rows * cols; i++)
         result.push_back(table[i]);
 
-    // Отбрасываем padding в конце
     size_t last = result.find_last_not_of(L'~');
     if (last == std::wstring::npos)
         throw cipher_error("Invalid cipher text");
