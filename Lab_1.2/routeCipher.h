@@ -2,15 +2,13 @@
 #include <string>
 #include <stdexcept>
 
-/** @brief Исключение модуля маршрутной перестановки */
+/* @brief Исключение модуля маршрутной перестановки */
 class cipher_error : public std::invalid_argument {
 public:
     explicit cipher_error(const std::string& what_arg) : std::invalid_argument(what_arg) {}
     explicit cipher_error(const char* what_arg) : std::invalid_argument(what_arg) {}
 };
-
-/** @brief Шифр табличной маршрутной перестановки
- *  @details Ключ — количество столбцов таблицы (устанавливается в конструкторе).
+ /*  @details Ключ — количество столбцов таблицы (устанавливается в конструкторе).
  *           Маршрут записи:  слева направо, сверху вниз (по строкам).
  *           Маршрут считывания: сверху вниз, справа налево (по столбцам).
  *  @warning Реализация для русского алфавита (буквы верхнего регистра).
